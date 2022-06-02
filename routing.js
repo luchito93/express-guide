@@ -91,6 +91,16 @@ Object.defineProperty(app.request, 'ip', {
     }
 })
 
+// add template pug
+// use vies
+app.set('views', './views')
+// add the template engine
+app.set('view engine', 'pug')
+
+app.get('/pug-template', (req, res) => {
+    res.render('index', { title: 'Hey', message: 'La criatura' })
+})
+
 app.listen(port, () => {
     console.log(`aplicacion corriendo en http://127.0.0.1:${port}`)
 })
